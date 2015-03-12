@@ -1,0 +1,81 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mips_16_core_top
+Version: G-2012.06
+Date   : Fri Dec  4 01:53:17 2015
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: ID_stage_inst/instruction_reg_reg[14]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: IF_stage_inst/pc_reg[7]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mips_16_core_top   tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  ID_stage_inst/instruction_reg_reg[14]/CK (SDFFRX2)      0.00       1.00 r
+  ID_stage_inst/instruction_reg_reg[14]/QN (SDFFRX2)      0.59       1.59 r
+  ID_stage_inst/U69/Y (NAND4X2)                           0.43       2.01 f
+  ID_stage_inst/U53/Y (INVX3)                             0.24       2.25 r
+  ID_stage_inst/U35/Y (AO22X1)                            0.37       2.62 r
+  ID_stage_inst/U65/Y (NOR2BX4)                           0.36       2.98 r
+  ID_stage_inst/decoding_op_src2[0] (ID_stage_test_1)     0.00       2.98 r
+  hazard_detection_unit_inst/decoding_op_src2[0] (hazard_detection_unit)
+                                                          0.00       2.98 r
+  hazard_detection_unit_inst/U20/Y (CLKINVX1)             0.27       3.25 f
+  hazard_detection_unit_inst/U15/Y (OAI22X1)              0.28       3.53 r
+  hazard_detection_unit_inst/U19/Y (AOI221X1)             0.19       3.72 f
+  hazard_detection_unit_inst/U16/Y (AOI211X1)             0.34       4.06 r
+  hazard_detection_unit_inst/U4/Y (OA22X2)                0.59       4.65 r
+  hazard_detection_unit_inst/pipeline_stall_n (hazard_detection_unit)
+                                                          0.00       4.65 r
+  ID_stage_inst/instruction_decode_en (ID_stage_test_1)
+                                                          0.00       4.65 r
+  ID_stage_inst/U26/Y (INVX6)                             0.25       4.91 f
+  ID_stage_inst/U61/Y (NOR2BX1)                           0.38       5.29 r
+  ID_stage_inst/U52/Y (NOR4X1)                            0.22       5.51 f
+  ID_stage_inst/U58/Y (NAND4X1)                           0.30       5.81 r
+  ID_stage_inst/U39/Y (NOR3X4)                            0.26       6.08 f
+  ID_stage_inst/branch_taken (ID_stage_test_1)            0.00       6.08 f
+  IF_stage_inst/branch_taken (IF_stage_test_1)            0.00       6.08 f
+  IF_stage_inst/U29/Y (AND2X2)                            0.25       6.32 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U8/CO (ADDFXL)        0.72       7.05 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U7/CO (ADDFX1)        0.39       7.44 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U6/CO (ADDFX1)        0.37       7.80 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U5/CO (ADDFX1)        0.37       8.17 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U4/CO (ADDFX1)        0.37       8.54 f
+  IF_stage_inst/DP_OP_10J1_127_1806/U3/CO (ADDFX2)        0.38       8.91 f
+  IF_stage_inst/U19/Y (CLKXOR2X2)                         0.26       9.17 f
+  IF_stage_inst/U27/Y (NAND2X1)                           0.16       9.33 r
+  IF_stage_inst/U1/Y (OAI21XL)                            0.20       9.54 f
+  IF_stage_inst/pc_reg[7]/D (SDFFRX1)                     0.00       9.54 f
+  data arrival time                                                  9.54
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             1.00      11.00
+  clock uncertainty                                      -1.00      10.00
+  IF_stage_inst/pc_reg[7]/CK (SDFFRX1)                    0.00      10.00 r
+  library setup time                                     -0.41       9.59
+  data required time                                                 9.59
+  --------------------------------------------------------------------------
+  data required time                                                 9.59
+  data arrival time                                                 -9.54
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.05
+
+
+1

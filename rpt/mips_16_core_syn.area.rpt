@@ -1,0 +1,29 @@
+ 
+****************************************
+Report : area
+Design : mips_16_core_top
+Version: G-2012.06
+Date   : Thu Dec  3 00:29:43 2015
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    slow (File: /home/raid2_2/course/cvsd/CBDK_IC_Contest/CIC/SynopsysDC/db/slow.db)
+
+Number of ports:                          133
+Number of nets:                           289
+Number of cells:                            7
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          1
+Number of references:                       7
+
+Combinational area:       6068.205013
+Noncombinational area:    4876.630180
+Net Interconnect area:    110833.898407
+
+Total cell area:          10944.835193
+Total area:               121778.733600
+1

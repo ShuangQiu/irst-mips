@@ -1,0 +1,20 @@
+read_verilog mips_16_core_syn.v
+current_design mips_16_core_top
+link
+check_design
+source mips_16_core_syn.sdc
+report_constraint -all_violators
+set test_default_scan_style multiplexed_flip_flop
+set test_default_delay 0
+set test_default_bidir_delay 0
+set test_default_strobe 40
+set test_default_period 100
+create_test_protocol -infer_asynch -infer_clock
+dft_drc
+set_scan_configuration -chain_count 2
+set_dft_configuration -fix_clock enable
+set_dft_configuration -fix_reset enable
+set_dft_configuration -fix_set enable
+preview_dft
+insert_dft
+dft_drc

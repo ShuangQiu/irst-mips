@@ -1,0 +1,140 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+EX_pipeline_reg_out	mips_16_core_top.v	/^	wire	[37:0]				EX_pipeline_reg_out;$/;"	n
+EX_stage	EX_stage.v	/^module EX_stage$/;"	m
+ID_pipeline_reg_out	mips_16_core_top.v	/^	wire	[56:0]				ID_pipeline_reg_out;$/;"	n
+ID_stage	ID_stage.v	/^module ID_stage$/;"	m
+IF_stage	IF_stage.v	/^module IF_stage$/;"	m
+MEM_pipeline_reg_out	mips_16_core_top.v	/^	wire	[36:0]				MEM_pipeline_reg_out;$/;"	n
+MEM_stage	MEM_stage.v	/^module MEM_stage$/;"	m
+WB_stage	WB_stage.v	/^module WB_stage$/;"	m
+a	alu.v	/^	input		[15:0]	a,		\/\/src1$/;"	p
+alu	alu.v	/^module alu$/;"	m
+alu_cmd	EX_stage.v	/^	wire	[2:0]		alu_cmd		= pipeline_reg_in[56:54];				\/\/S2$/;"	n
+alu_src1	EX_stage.v	/^	wire	[15:0]		alu_src1	= pipeline_reg_in[53:38];$/;"	n
+alu_src2	EX_stage.v	/^	wire	[15:0]		alu_src2	= pipeline_reg_in[37:22];$/;"	n
+alu_src2_mux	ID_stage.v	/^	reg					alu_src2_mux;			\/\/ S4$/;"	r
+branch_offset_imm	mips_16_core_top.v	/^	wire	[5:0]				branch_offset_imm;$/;"	n
+branch_taken	IF_stage.v	/^	input							branch_taken,$/;"	p
+branch_taken	mips_16_core_top.v	/^	wire						branch_taken;$/;"	n
+clk	EX_stage.v	/^	input					clk,$/;"	p
+clk	ID_stage.v	/^	input					clk,$/;"	p
+clk	IF_stage.v	/^	input							clk,$/;"	p
+clk	MEM_stage.v	/^	input					clk,$/;"	p
+clk	data_mem.v	/^	input					clk,$/;"	p
+clk	instruction_mem.v	/^	input					clk,		\/\/ asynchronized!!$/;"	p
+clk	mips_16_core_top.v	/^	input						clk,$/;"	p
+clk	register_file.v	/^	input				clk,$/;"	p
+cmd	alu.v	/^	input		[2:0]	cmd,	\/\/function sel$/;"	p
+data_mem	data_mem.v	/^module data_mem$/;"	m
+decoding_op_is_branch	ID_stage.v	/^	wire				decoding_op_is_branch;	\/\/S5$/;"	n
+decoding_op_is_store	ID_stage.v	/^	wire				decoding_op_is_store;	\/\/S6$/;"	n
+decoding_op_src1	ID_stage.v	/^	output		[2:0]		decoding_op_src1,		\/\/source_1 register number$/;"	p
+decoding_op_src1	hazard_detection_unit.v	/^	input		[2:0]		decoding_op_src1,		\/\/ID stage source_1 register number$/;"	p
+decoding_op_src1	mips_16_core_top.v	/^	wire	[2:0]				decoding_op_src1;		\/\/source_1 register number$/;"	n
+decoding_op_src2	mips_16_core_top.v	/^	wire	[2:0]				decoding_op_src2;		\/\/source_2 register number$/;"	n
+ex_alu_cmd	ID_stage.v	/^	reg		[2:0]		ex_alu_cmd;				\/\/S2$/;"	r
+ex_alu_result	EX_stage.v	/^	wire	[15:0]		ex_alu_result;$/;"	n
+ex_alu_result	MEM_stage.v	/^	wire	[15:0]		ex_alu_result = pipeline_reg_in[37:22];$/;"	n
+ex_alu_result	WB_stage.v	/^	wire [15:0]	ex_alu_result = pipeline_reg_in[36:21];$/;"	n
+ex_alu_src1	ID_stage.v	/^	wire	[15:0]		ex_alu_src1;$/;"	n
+ex_alu_src2	ID_stage.v	/^	wire	[15:0]		ex_alu_src2;$/;"	n
+ex_op_dest	EX_stage.v	/^	output		[2:0]		ex_op_dest$/;"	p
+ex_op_dest	hazard_detection_unit.v	/^	input		[2:0]		ex_op_dest,				\/\/EX stage destinaton register number$/;"	p
+ex_op_dest	mips_16_core_top.v	/^	wire	[2:0]				ex_op_dest;				\/\/EX stage destinaton register number$/;"	n
+hazard_detection_unit	hazard_detection_unit.v	/^module hazard_detection_unit$/;"	m
+input	EX_stage.v	/^	input					rst,$/;"	p
+input	ID_stage.v	/^	input					rst,$/;"	p
+input	ID_stage.v	/^	input		[15:0]		reg_read_data_2,	\/\/ register file read port 2 data$/;"	p
+input	IF_stage.v	/^	input							rst,				\/\/active high$/;"	p
+input	IF_stage.v	/^	input	[5:0]					branch_offset_imm,$/;"	p
+input	MEM_stage.v	/^	input					rst,$/;"	p
+input	alu.v	/^	input		[15:0]	b,		\/\/src2$/;"	p
+input	data_mem.v	/^	input					mem_write_en,$/;"	p
+input	data_mem.v	/^	input	[15:0]			mem_access_addr,$/;"	p
+input	hazard_detection_unit.v	/^	input		[2:0]		decoding_op_src2,		\/\/ID stage source_2 register number$/;"	p
+input	hazard_detection_unit.v	/^	input		[2:0]		mem_op_dest,			\/\/MEM stage destinaton register number$/;"	p
+input	instruction_mem.v	/^	input	[`PC_WIDTH-1:0]	pc,$/;"	p
+input	mips_16_core_top.v	/^	input						rst,$/;"	p
+input	register_file.v	/^	input				rst,$/;"	p
+input	register_file.v	/^	input		[2:0]	reg_read_addr_1,$/;"	p
+input	register_file.v	/^	input		[2:0]	reg_read_addr_2,$/;"	p
+input	register_file.v	/^	input		[2:0]	reg_write_dest,$/;"	p
+instruction	ID_stage.v	/^	input		[15:0]		instruction,$/;"	p
+instruction	IF_stage.v	/^	output	[15:0]					instruction$/;"	p
+instruction	instruction_mem.v	/^	output	[15:0]			instruction$/;"	p
+instruction	mips_16_core_top.v	/^	wire	[15:0]				instruction;$/;"	n
+instruction_decode_en	ID_stage.v	/^	input					instruction_decode_en,$/;"	p
+instruction_fetch_en	IF_stage.v	/^	input							instruction_fetch_en,$/;"	p
+instruction_mem	instruction_mem.v	/^module instruction_mem		\/\/ a rtl simulation rom, rom initial code can be found in the testbench$/;"	m
+instruction_mem	instruction_mem.v	/^module instruction_mem		\/\/ a synthesisable rom implementation$/;"	m
+instruction_reg	ID_stage.v	/^	reg		[15:0]		instruction_reg;$/;"	r
+ir_dest	ID_stage.v	/^	wire	[2:0]		ir_dest;		\/\/destination register number$/;"	n
+ir_dest_with_bubble	ID_stage.v	/^	wire	[2:0]		ir_dest_with_bubble;$/;"	n
+ir_imm	ID_stage.v	/^	wire	[5:0]		ir_imm;			\/\/immediate number carried by the instruction$/;"	n
+ir_op_code	ID_stage.v	/^	wire	[3:0]		ir_op_code;		\/\/operation code$/;"	n
+ir_op_code_with_bubble	ID_stage.v	/^	wire	[3:0]		ir_op_code_with_bubble;$/;"	n
+ir_src1	ID_stage.v	/^	wire	[2:0]		ir_src1;		\/\/source_1 register number$/;"	n
+ir_src2	ID_stage.v	/^	wire	[2:0]		ir_src2;		\/\/source_2 register number$/;"	n
+mem_op_dest	MEM_stage.v	/^	output		[2:0]		mem_op_dest$/;"	p
+mem_op_dest	mips_16_core_top.v	/^	wire	[2:0]				mem_op_dest;			\/\/MEM stage destinaton register number$/;"	n
+mem_read_data	MEM_stage.v	/^	wire	[15:0]		mem_read_data ;		$/;"	n
+mem_read_data	WB_stage.v	/^	wire [15:0]	mem_read_data = pipeline_reg_in[20:5];$/;"	n
+mem_read_data	data_mem.v	/^	output	[15:0]			mem_read_data$/;"	p
+mem_write_data	ID_stage.v	/^	wire	[15:0]		mem_write_data;$/;"	n
+mem_write_data	MEM_stage.v	/^	wire	[15:0]		mem_write_data = pipeline_reg_in[20:5];$/;"	n
+mem_write_data	data_mem.v	/^	input	[15:0]			mem_write_data,$/;"	p
+mem_write_en	ID_stage.v	/^	wire				mem_write_en;		$/;"	n
+mem_write_en	MEM_stage.v	/^	wire				mem_write_en = pipeline_reg_in[21];$/;"	n
+mips_16_core_top	mips_16_core_top.v	/^module mips_16_core_top$/;"	m
+output	EX_stage.v	/^	output	reg	[37:0]		pipeline_reg_out,	\/\/	[37:22],16bits:	ex_alu_result[15:0];$/;"	p
+output	ID_stage.v	/^	output		[2:0]		decoding_op_src2		\/\/source_2 register number$/;"	p
+output	ID_stage.v	/^	output		[2:0]		reg_read_addr_2,	\/\/ register file read port 2 address$/;"	p
+output	ID_stage.v	/^	output		[5:0]		branch_offset_imm,$/;"	p
+output	ID_stage.v	/^	output	reg	[56:0]		pipeline_reg_out,	\/\/	[56:22],35bits:	ex_alu_cmd[2:0], ex_alu_src1[15:0], ex_alu_src2[15:0]$/;"	p
+output	IF_stage.v	/^	output	reg	[`PC_WIDTH-1:0]		pc,$/;"	p
+output	MEM_stage.v	/^	output	reg	[36:0]		pipeline_reg_out,	\/\/	[36:21],16bits:	ex_alu_result[15:0]$/;"	p
+output	WB_stage.v	/^	output					reg_write_en,$/;"	p
+output	WB_stage.v	/^	output		[15:0]		reg_write_data,$/;"	p
+output	alu.v	/^	output	reg	[15:0]	r		\/\/result	$/;"	p
+output	hazard_detection_unit.v	/^	output	reg				pipeline_stall_n		\/\/ Active low$/;"	p
+pc	mips_16_core_top.v	/^	output	[`PC_WIDTH-1:0]		pc$/;"	p
+pipeline_reg_in	EX_stage.v	/^	input		[56:0]		pipeline_reg_in,	\/\/	[56:22],35bits:	ex_alu_cmd[2:0], ex_alu_src1[15:0], ex_alu_src2[15:0]$/;"	p
+pipeline_reg_in	MEM_stage.v	/^	input		[37:0]		pipeline_reg_in,	\/\/	[37:22],16bits:	ex_alu_result[15:0];$/;"	p
+pipeline_reg_in	WB_stage.v	/^	input		[36:0]		pipeline_reg_in,	\/\/	[36:21],16bits:	ex_alu_result[15:0]$/;"	p
+pipeline_stall_n	mips_16_core_top.v	/^	wire 						pipeline_stall_n ;$/;"	n
+ram	data_mem.v	/^	reg [15:0] ram [(2**`DATA_MEM_ADDR_WIDTH)-1:0];$/;"	r
+ram_addr	data_mem.v	/^	wire [`DATA_MEM_ADDR_WIDTH-1 : 0] ram_addr = mem_access_addr[`DATA_MEM_ADDR_WIDTH-1 : 0];$/;"	n
+reg	ID_stage.v	/^	output	reg				branch_taken,$/;"	p
+reg	instruction_mem.v	/^	output reg	[15:0]		instruction$/;"	p
+reg_array	register_file.v	/^	reg	[15:0]	reg_array [7:0];$/;"	r
+reg_read_addr_1	ID_stage.v	/^	output		[2:0]		reg_read_addr_1,	\/\/ register file read port 1 address$/;"	p
+reg_read_addr_1	mips_16_core_top.v	/^	wire	[2:0]				reg_read_addr_1;	\/\/ register file read port 1 address$/;"	n
+reg_read_addr_2	mips_16_core_top.v	/^	wire	[2:0]				reg_read_addr_2;	\/\/ register file read port 2 address$/;"	n
+reg_read_data_1	ID_stage.v	/^	input		[15:0]		reg_read_data_1,	\/\/ register file read port 1 data$/;"	p
+reg_read_data_1	mips_16_core_top.v	/^	wire	[15:0]				reg_read_data_1;	\/\/ register file read port 1 data$/;"	n
+reg_read_data_1	register_file.v	/^	output		[15:0]	reg_read_data_1,$/;"	p
+reg_read_data_2	mips_16_core_top.v	/^	wire	[15:0]				reg_read_data_2;	\/\/ register file read port 2 data$/;"	n
+reg_read_data_2	register_file.v	/^	output		[15:0]	reg_read_data_2$/;"	p
+reg_write_data	mips_16_core_top.v	/^	wire	[15:0]				reg_write_data;$/;"	n
+reg_write_data	register_file.v	/^	input		[15:0]	reg_write_data,$/;"	p
+reg_write_dest	WB_stage.v	/^	output		[2:0]		reg_write_dest,$/;"	p
+reg_write_dest	mips_16_core_top.v	/^	wire	[2:0]				reg_write_dest;$/;"	n
+reg_write_en	mips_16_core_top.v	/^	wire						reg_write_en;$/;"	n
+reg_write_en	register_file.v	/^	input				reg_write_en,$/;"	p
+register_file	register_file.v	/^module register_file$/;"	m
+rom	instruction_mem.v	/^	reg	[15:0] rom [2**`INSTR_MEM_ADDR_WIDTH-1 : 0];$/;"	r
+rom_addr	instruction_mem.v	/^	wire [`INSTR_MEM_ADDR_WIDTH-1 : 0] rom_addr = pc[`INSTR_MEM_ADDR_WIDTH-1 : 0];$/;"	n
+wb_op_dest	WB_stage.v	/^	output		[2:0]		wb_op_dest$/;"	p
+wb_op_dest	hazard_detection_unit.v	/^	input		[2:0]		wb_op_dest,				\/\/WB stage destinaton register number$/;"	p
+wb_op_dest	mips_16_core_top.v	/^	wire	[2:0]				wb_op_dest;				\/\/WB stage destinaton register number$/;"	n
+write_back_dest	ID_stage.v	/^	wire	[2:0]		write_back_dest;		\/\/ dest$/;"	n
+write_back_dest	WB_stage.v	/^	wire [2:0]	write_back_dest = pipeline_reg_in[3:1];$/;"	n
+write_back_en	ID_stage.v	/^	reg					write_back_en;			\/\/ S3$/;"	r
+write_back_en	WB_stage.v	/^	wire		write_back_en = pipeline_reg_in[4];$/;"	n
+write_back_result_mux	ID_stage.v	/^	reg					write_back_result_mux;	\/\/ S1$/;"	r
+write_back_result_mux	WB_stage.v	/^	wire		write_back_result_mux = pipeline_reg_in[0];$/;"	n

@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : area
+Design : mips_16_core_top
+Version: G-2012.06
+Date   : Fri Dec  4 01:52:54 2015
+****************************************
+
+Library(s) Used:
+
+    slow (File: /home/raid2_2/course/cvsd/CBDK_IC_Contest/CIC/SynopsysDC/db/slow.db)
+
+Number of ports:                          138
+Number of nets:                           296
+Number of cells:                            7
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          1
+Number of references:                       7
+
+Combinational area:       6100.455611
+Noncombinational area:    6241.339714
+Net Interconnect area:    125487.314606
+
+Total cell area:          12341.795326
+Total area:               137829.109931
+1

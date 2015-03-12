@@ -1,0 +1,11 @@
+./MEM_stage.v
+./EX_stage.v
+./register_file.v
+./hazard_detection_unit.v
+./instruction_mem.v
+./WB_stage.v
+./IF_stage.v
+./mips_16_core_top.v
+./data_mem.v
+./ID_stage.v
+./alu.v
