@@ -25,7 +25,7 @@
 `include "register_file.v"
 `include "data_mem.v"
 
-`define  SDFFILE "./mips_16_core_syn.sdf"
+`define  SDFFILE "./mips_16_core_irst.sdf"
 
 module mips_16_core_top_tb_0_v;
 
@@ -34,8 +34,13 @@ module mips_16_core_top_tb_0_v;
 	reg rst;
 
 	// Outputs
-	wire [`PC_WIDTH-1:0] pc;
+    wire [15:0] irst_reg_data; 
+    wire        irst_done; 
+
 	wire [15:0]	instruction;
+	wire [`PC_WIDTH-1:0] pc;
+    wire        inst_write_en; 
+    wire [15:0] inst_write_data; 
 	
 	wire [15:0]	reg_read_data_1;	// register file read port 1 data
 	wire [15:0]	reg_read_data_2;	// register file read port 2 data
@@ -62,9 +67,14 @@ module mips_16_core_top_tb_0_v;
 	mips_16_core_top uut (
 		.clk                (clk), 
 		.rst                (rst), 
+        .irst_reg_data      (irst_reg_data), 
+        .irst_done          (irst_done), 
+
 		.instruction		(instruction), 
 
 		.pc(pc), 
+        .inst_write_en(inst_write_en), 
+        .inst_write_data(inst_write_data), 
 
 		.reg_write_en			(reg_write_en), 
 		.reg_write_dest			(reg_write_dest), 
@@ -84,6 +94,9 @@ module mips_16_core_top_tb_0_v;
 	instruction_mem imem(
 		.clk				(clk),
 		.pc					(pc),
+
+        .write_en           (inst_write_en), 
+        .write_data         (inst_write_data), 
 		
 		.instruction		(instruction)
 	);
@@ -97,7 +110,9 @@ module mips_16_core_top_tb_0_v;
 		.reg_read_addr_1		(reg_read_addr_1), 
 		.reg_read_data_1		(reg_read_data_1), 
 		.reg_read_addr_2		(reg_read_addr_2), 
-		.reg_read_data_2		(reg_read_data_2)
+		.reg_read_data_2		(reg_read_data_2), 
+        .irst_reg_data          (irst_reg_data), 
+        .irst_done              (irst_done)
 	);
 	
 	/********************** Data memory *********************/
@@ -112,6 +127,13 @@ module mips_16_core_top_tb_0_v;
 
     `ifdef SDF 
     initial $sdf_annotate(`SDFFILE, uut); 
+    `endif 
+    
+    `ifdef VCD
+    initial begin 
+        $dumpfile("mips_16_core.vcd");
+        $dumpvars;
+    end 
     `endif 
 	
 	initial begin
@@ -163,7 +185,7 @@ module mips_16_core_top_tb_0_v;
 			#(CLK_PERIOD*100)
 			$monitoroff;
 			display_all_regs;
-			$display("ram[10] = %d", dmem.ram[10]);
+			//$display("ram[10] = %d", dmem.ram[10]);
 			//#(CLK_PERIOD*100) test = 0;
 			sys_reset;
 			
@@ -172,7 +194,9 @@ module mips_16_core_top_tb_0_v;
 	
 	task test2;
 		begin
-			$readmemb("./dat/test2.prog",imem.rom);
+			//$readmemb("./dat/test2.prog",imem.rom);
+			$readmemb("./dat/fti.prog",imem.rom);
+			$readmemb("./dat/mis.prog",imem.rom,128);
 			$display("rom load successfully\n");
 			$display("running test2\n");
 			$display("multiply R3=R1*R2\n");
@@ -229,7 +253,7 @@ module mips_16_core_top_tb_0_v;
 			    $display("running test2\n");
 				 while(test == 2) begin
 				    @(pc)
-					if(pc==6) begin
+					if(pc%128==0) begin
 						$display("current pc : %d",uut.pc);
 						display_all_regs();
 					end

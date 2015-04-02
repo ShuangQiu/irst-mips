@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : area
+Design : mips_16_core_top
+Version: G-2012.06
+Date   : Tue Dec 22 04:15:15 2015
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    typical (File: /home/raid2_2/course/cvsd/CBDK_IC_Contest/CIC/SynopsysDC/db/typical.db)
+
+Number of ports:                          167
+Number of nets:                           407
+Number of cells:                           55
+Number of combinational cells:             48
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                         48
+Number of references:                       9
+
+Combinational area:       7750.328419
+Noncombinational area:    6299.051338
+Net Interconnect area:    139954.043396
+
+Total cell area:          14049.379757
+Total area:               154003.423153
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
+mips_16_core_top                  14049.3798    100.0   655.1964     0.0000  0.0000  mips_16_core_top
+EX_stage_inst                      4557.5191     32.4    28.8558  1096.5204  0.0000  EX_stage
+EX_stage_inst/alu_inst             3432.1428     24.4  3432.1428     0.0000  0.0000  alu
+ID_stage_inst                      3214.8755     22.9   755.3430  2459.5325  0.0000  ID_stage
+IF_stage_inst                      1498.8042     10.7   847.0026   651.8016  0.0000  IF_stage
+MEM_stage_inst                     3107.9394     22.1   492.2460  1025.2296  0.0000  MEM_stage
+MEM_stage_inst/trcd                1590.4638     11.3     0.0000     0.0000  0.0000  trcd
+MEM_stage_inst/trcd/ora            1590.4638     11.3   558.4446  1032.0192  0.0000  ora
+WB_stage_inst                       439.6266      3.1   439.6266     0.0000  0.0000  WB_stage
+hazard_detection_unit_inst          266.4918      1.9   266.4918     0.0000  0.0000  hazard_detection_unit
+rand                                308.9268      2.2   274.9788    33.9480  0.0000  randomizer
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
+Total                                                  7750.3284  6299.0513  0.0000
+
+1

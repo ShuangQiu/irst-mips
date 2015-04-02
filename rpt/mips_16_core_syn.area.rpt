@@ -3,10 +3,9 @@
 Report : area
 Design : mips_16_core_top
 Version: G-2012.06
-Date   : Thu Dec  3 00:29:43 2015
+Date   : Tue Dec  8 19:29:51 2015
 ****************************************
 
-Information: Updating design information... (UID-85)
 Library(s) Used:
 
     slow (File: /home/raid2_2/course/cvsd/CBDK_IC_Contest/CIC/SynopsysDC/db/slow.db)
@@ -26,4 +25,24 @@ Net Interconnect area:    110833.898407
 
 Total cell area:          10944.835193
 Total area:               121778.733600
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
+mips_16_core_top                  10944.8352    100.0     6.7896     0.0000  0.0000  mips_16_core_top
+EX_stage_inst                      4944.5263     45.2    62.8038  1096.5204  0.0000  EX_stage
+EX_stage_inst/alu_inst             3785.2020     34.6  3785.2020     0.0000  0.0000  alu
+ID_stage_inst                      3304.8377     30.2   850.3974  2454.4403  0.0000  ID_stage
+IF_stage_inst                       845.3052      7.7   587.3004   258.0048  0.0000  IF_stage
+MEM_stage_inst                     1339.2486     12.2   271.5840  1067.6646  0.0000  MEM_stage
+WB_stage_inst                       234.2412      2.1   234.2412     0.0000  0.0000  WB_stage
+hazard_detection_unit_inst          269.8866      2.5   269.8866     0.0000  0.0000  hazard_detection_unit
+--------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
+Total                                                  6068.2050  4876.6302  0.0000
+
 1

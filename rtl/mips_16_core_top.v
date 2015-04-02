@@ -19,9 +19,14 @@ module mips_16_core_top
 (
 	input						clk,
 	input						rst,
+    input   [15:0]              irst_reg_data, 
+    output                      irst_done, 
+
 	input	[15:0]				instruction, 
 
 	output	[`PC_WIDTH-1:0]		pc, 
+    output                      inst_write_en, 
+    output  [15:0]              inst_write_data, 
 	
 	input	[15:0]				reg_read_data_1,	// register file read port 1 data
 	input	[15:0]				reg_read_data_2,	// register file read port 2 data
@@ -38,6 +43,8 @@ module mips_16_core_top
 	output	[15:0]		    	mem_write_data, // write port
 	output					    mem_write_en
 );
+    wire    [15:0]              rand_data; 
+
 	wire 						pipeline_stall_n ;
 	wire	[5:0]				branch_offset_imm;
 	wire						branch_taken;
@@ -54,11 +61,21 @@ module mips_16_core_top
 	IF_stage IF_stage_inst (
 		.clk					(clk), 
 		.rst					(rst), 
+        .irst_reg_data          (irst_reg_data), 
+        .irst_done              (irst_done), 
 		.instruction_fetch_en	(pipeline_stall_n),
 		.branch_offset_imm		(branch_offset_imm), 
 		.branch_taken			(branch_taken), 
-		.pc						(pc)
+		.pc						(pc), 
+        .write_en               (inst_write_en) 
 	);
+
+    //TODO
+    randomizer rand(
+        .rand_data              (rand_data), 
+        .inst                   (instruction), 
+        .rand_inst              (inst_write_data)
+    ); 
 	
 	ID_stage ID_stage_inst (
 		.clk					(clk),
@@ -87,6 +104,9 @@ module mips_16_core_top
 	MEM_stage MEM_stage_inst (
 		.clk					(clk), 
 		.rst					(rst), 
+        .irst_reg_data          (irst_reg_data), 
+        .rand_data              (rand_data), 
+
 		.pipeline_reg_in		(EX_pipeline_reg_out), 
 		.pipeline_reg_out		(MEM_pipeline_reg_out), 
 		.mem_op_dest			(mem_op_dest), 

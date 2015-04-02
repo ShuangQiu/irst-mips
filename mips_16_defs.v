@@ -17,6 +17,8 @@
 	`define PC_WIDTH				8
 	`define	INSTR_MEM_ADDR_WIDTH	8
 	`define DATA_MEM_ADDR_WIDTH		8
+
+	/************** IRST-related macro definition  ****************/
  
 	/************** Operation Code in instructions ****************/
 	`define OP_NOP			4'b0000

@@ -30,9 +30,14 @@ module register_file
 	output		[15:0]	reg_read_data_1,
 	//read port 2
 	input		[2:0]	reg_read_addr_2,
-	output		[15:0]	reg_read_data_2
+	output		[15:0]	reg_read_data_2, 
+
+    output      [15:0]  irst_reg_data, 
+    input               irst_done
 );
-	reg	[15:0]	reg_array [7:0];
+	reg	        [15:0]	reg_array [7:0];
+
+    assign irst_reg_data = reg_array[0]; 
 	
 	// write port
 	//reg [2:0] i;
@@ -40,19 +45,23 @@ module register_file
 		if(rst) begin
 			// for(i=0; i<8; i=i+1)
 				// reg_array[i] <= 15'b0;
-			reg_array[0] <= 15'b0;
-			reg_array[1] <= 15'b0;
-			reg_array[2] <= 15'b0;
-			reg_array[3] <= 15'b0;
-			reg_array[4] <= 15'b0;
-			reg_array[5] <= 15'b0;
-			reg_array[6] <= 15'b0;
-			reg_array[7] <= 15'b0;	
+			reg_array[0] <= 16'b1000_1111_0000_0100; // activate irst
+			//reg_array[0] <= 16'b0;
+			reg_array[1] <= 16'b0;
+			reg_array[2] <= 16'b0;
+			reg_array[3] <= 16'b0;
+			reg_array[4] <= 16'b0;
+			reg_array[5] <= 16'b0;
+			reg_array[6] <= 16'b0;
+			reg_array[7] <= 16'b0;	
 		end
 		else begin
 			if(reg_write_en) begin
 				reg_array[reg_write_dest] <= reg_write_data;
 			end
+            if(irst_done) begin 
+                reg_array[0] <= 15'b0; 
+            end 
 		end
 		
 	end

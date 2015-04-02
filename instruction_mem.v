@@ -17,6 +17,9 @@ module instruction_mem		// a rtl simulation rom, rom initial code can be found i
 	input					clk,		// asynchronized!!
 	input	[`PC_WIDTH-1:0]	pc,
 	
+    input   [15:0]          write_data, 
+    input                   write_en, 
+
 	output	[15:0]			instruction
 );
 	
@@ -24,13 +27,11 @@ module instruction_mem		// a rtl simulation rom, rom initial code can be found i
 	
 	wire [`INSTR_MEM_ADDR_WIDTH-1 : 0] rom_addr = pc[`INSTR_MEM_ADDR_WIDTH-1 : 0];
 	
-	// always @ (posedge clk) begin
-	// always @ (*) begin
-	    // instruction = rom[rom_addr];
-	// end
+	always @ (posedge clk) 
+        if (write_en)
+	        rom[rom_addr] <= write_data;
 	
 	assign instruction = rom[rom_addr];
-	
 	
 endmodule 
 `endif
