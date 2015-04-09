@@ -21,7 +21,7 @@ module alu
 	always @ (*) begin
 		case(cmd)
 			`ALU_NC	:
-				r = 16'bx;
+				r = 16'b0;
 			`ALU_ADD:
 				r = a + b;
 			`ALU_SUB:

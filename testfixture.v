@@ -57,11 +57,14 @@ module mips_16_core_top_tb_0_v;
 	wire [15:0] mem_write_data; // write port
 	wire        mem_write_en;
 
+    wire [31:0] rand_data;  
+
 	parameter CLK_PERIOD = 10;
 	always #(CLK_PERIOD /2) 
 		clk =~clk;
 	integer i;
 	integer test;
+    integer fout; 
 	
 	// Instantiate the Unit Under Test (UUT)
 	mips_16_core_top uut (
@@ -87,7 +90,9 @@ module mips_16_core_top_tb_0_v;
 		.mem_access_addr    	(mem_access_addr), 
 		.mem_write_data		    (mem_write_data), 
 		.mem_write_en		    (mem_write_en), 
-		.mem_read_data		    (mem_read_data)
+		.mem_read_data		    (mem_read_data), 
+
+        .rand_data              (rand_data)
 	);
 	
 	// instruction memory, or rom
@@ -135,6 +140,14 @@ module mips_16_core_top_tb_0_v;
         $dumpvars;
     end 
     `endif 
+
+    initial begin // write file 
+        fout = $fopen("mips_16_core.out"); 
+        if (fout == 0) begin
+            $display("Output file open error !");
+            $finish;
+        end
+    end 
 	
 	initial begin
 		// Initialize Inputs
@@ -209,9 +222,16 @@ module mips_16_core_top_tb_0_v;
 			
 			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
 			
-			#(CLK_PERIOD*400)
+			//#(CLK_PERIOD*400)
+            @ (posedge irst_done); 
 			$monitoroff;
 			display_all_regs;
+            $fdisplay(fout, "%b", uut.rand_data); 
+
+			$display("------------------------------");
+            $display("trcd_data: "); 
+            $display("%h", uut.rand_data); 
+			$display("------------------------------");
 			
 			test = 0;
 			sys_reset;

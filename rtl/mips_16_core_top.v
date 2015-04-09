@@ -41,9 +41,10 @@ module mips_16_core_top
 	
 	output	[15:0]	    		mem_access_addr, // address input, shared by read and write port
 	output	[15:0]		    	mem_write_data, // write port
-	output					    mem_write_en
+	output					    mem_write_en, 
+
+    inout   [31:0]              rand_data 
 );
-    wire    [15:0]              rand_data; 
 
 	wire 						pipeline_stall_n ;
 	wire	[5:0]				branch_offset_imm;
@@ -72,7 +73,7 @@ module mips_16_core_top
 
     //TODO
     randomizer rand(
-        .rand_data              (rand_data), 
+        .rand_data              (rand_data[15:0]), 
         .inst                   (instruction), 
         .rand_inst              (inst_write_data)
     ); 

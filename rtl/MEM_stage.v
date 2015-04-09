@@ -16,7 +16,7 @@ module MEM_stage
 	input					clk,
 	input					rst,
     input       [15:0]      irst_reg_data, 
-    output      [15:0]      rand_data, 
+    output      [31:0]      rand_data, 
 	
 	// from EX_stage
 	input		[37:0]		pipeline_reg_in,	//	[37:22],16bits:	ex_alu_result[15:0];
@@ -36,7 +36,7 @@ module MEM_stage
 	output					mem_write_en
 );
 	
-    wire        [15:0]      trcd_data;  
+    wire        [31:0]      trcd_data;  
 
 	assign ex_alu_result = pipeline_reg_in[37:22];
 	assign mem_write_en = pipeline_reg_in[21];
@@ -58,7 +58,7 @@ module MEM_stage
 		end
 		else begin
 			pipeline_reg_out[36:21] <= ex_alu_result;
-			pipeline_reg_out[20:5]	<= (irst_reg_data[15])?trcd_data:mem_read_data;
+			pipeline_reg_out[20:5]	<= (irst_reg_data[15])?trcd_data[15:0]:mem_read_data;
 			pipeline_reg_out[4:0] 	<= pipeline_reg_in[4:0];
 		end
 	end

@@ -4,7 +4,7 @@
 // Filename      : trcd.v
 // Author        : r04099
 // Created On    : 2015-03-18 07:52
-// Last Modified : 2015-12-23 00:20
+// Last Modified : 2015-04-09 08:32
 // -------------------------------------------------------------------------------------------------
 // Svn Info:
 //   $Revision::                                                                                $:
@@ -29,7 +29,7 @@ module trcd(
 	input	[15:0]			mem_write_data,
 	input					mem_write_en,
 	// read port
-	output	[15:0]			mem_read_data 
+	output	[31:0]			mem_read_data 
 ); 
 
     ora ora(.clk(clk), 
@@ -53,7 +53,7 @@ module ora(
 	input	[15:0]			write_data,
 	input					write_en,
 	// read port
-	output	[15:0]			read_data
+	output	[31:0]			read_data
 );
 
     reg     [31:0] ram; 
@@ -62,7 +62,7 @@ module ora(
     wire     [31:0] misr; 
 
     //TODO: weight bist functionality 
-    assign read_data = ram[15:0]; 
+    assign read_data = ram; 
 
     // misr assignment taking both write address & data value  
     genvar i; 
