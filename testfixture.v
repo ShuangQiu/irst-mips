@@ -172,7 +172,7 @@ module mips_16_core_top_tb_0_v;
         // ***************************
         // fault injected here 
         // ***************************
-        force uut.rand_data[6]=1;
+        force uut.rand_data[3]=0;
         // ***************************
 
 		// Wait 100 ns for global reset to finish
