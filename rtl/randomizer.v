@@ -4,7 +4,7 @@
 // Filename      : randomizer.v
 // Author        : YK. Huang
 // Created On    : 2015-12-21 13:50
-// Last Modified : 2015-12-21 13:56
+// Last Modified : 2015-04-09 09:17
 // -------------------------------------------------------------------------------------------------
 // Svn Info:
 //   $Revision::                                                                                $:
@@ -57,6 +57,7 @@ always @(inst or rand_data or i_rand_inst) begin
 		
 		(BZ):  mask_gen = mask_gen3; 
 		default:begin
+            mask_gen = 16'b0; 
 		end
 	endcase
 	

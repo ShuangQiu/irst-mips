@@ -26,12 +26,14 @@
 `include "data_mem.v"
 
 `define  SDFFILE "./mips_16_core_irst.sdf"
+`define  END_CYCLE  10000
 
 module mips_16_core_top_tb_0_v;
 
 	// Inputs
 	reg clk;
 	reg rst;
+    reg irst_done_reg; 
 
 	// Outputs
     wire [15:0] irst_reg_data; 
@@ -62,6 +64,10 @@ module mips_16_core_top_tb_0_v;
 	parameter CLK_PERIOD = 10;
 	always #(CLK_PERIOD /2) 
 		clk =~clk;
+
+    always @(posedge clk) 
+        irst_done_reg <= irst_done; 
+
 	integer i;
 	integer test;
     integer fout; 
@@ -149,10 +155,25 @@ module mips_16_core_top_tb_0_v;
         end
     end 
 	
+
+    initial begin 
+        #(CLK_PERIOD*`END_CYCLE); 
+
+        $display("WARNNING!! Simulation out of time ...!\n"); 
+        $fdisplay(fout, "%b", 32'bx); 
+        $finish;  
+    end 
+
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;
+
+        // ***************************
+        // fault injected here 
+        // ***************************
+        force uut.rand_data[6]=1;
+        // ***************************
 
 		// Wait 100 ns for global reset to finish
 		#100;
@@ -168,7 +189,7 @@ module mips_16_core_top_tb_0_v;
       
 	task display_debug_message;
 		begin
-			$display("\n***************************");
+			$display("\n");
 			$display("mips_16 core test");
 			$display("***************************\n");
 		end
@@ -223,7 +244,7 @@ module mips_16_core_top_tb_0_v;
 			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
 			
 			//#(CLK_PERIOD*400)
-            @ (posedge irst_done); 
+            @ (posedge irst_done_reg); 
 			$monitoroff;
 			display_all_regs;
             $fdisplay(fout, "%b", uut.rand_data); 

@@ -76,7 +76,8 @@ module IF_stage
 				next_pc=pc_reg + {{(`PC_WIDTH-6){branch_offset_imm[5]}}, branch_offset_imm[5:0]};	
 			else
 				next_pc=pc_reg + `PC_WIDTH'd1;
-		end
+		end else 
+            next_pc=pc_reg; 
     end 
 
 	always @ (posedge clk or posedge rst) begin

@@ -25,7 +25,7 @@ irst : $(BENCH) $(IRST_SRC_FILE) $(TECH_FILE) mips_16_core_irst.sdf
 	$(COM) $(IRST_COM_OPTS) $(BENCH) $(IRST_SRC_FILE) -v $(TECH_FILE) +define+SDF$(IRST_OPTION)
 
 clean :
-	@rm -rf *.vcd* tb* ncverilog.* novas.rc 
+	@rm -rf *.vcd* tb* ncverilog.* novas.rc *.X
 	@rm -rf INCA_libs nWaveLog VerdiLog vfastLog 
 
 synclean : 
