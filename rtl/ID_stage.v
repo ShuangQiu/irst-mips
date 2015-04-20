@@ -110,7 +110,7 @@ module ID_stage
 						write_back_en			= 0;		// S3
 						write_back_result_mux	= 1'bx;		// S1
 						ex_alu_cmd				= `ALU_NC;	// S2
-						alu_src2_mux			= 1'bx;		// S4
+						alu_src2_mux			= 1'b0;		// S4
 					end
 				`OP_ADD	:
 					begin
@@ -145,7 +145,7 @@ module ID_stage
 						write_back_en			= 1;		// S3
 						write_back_result_mux	= 0;		// S1
 						ex_alu_cmd				= `ALU_XOR;	// S2
-						alu_src2_mux			= 1'bx;		// S4
+						alu_src2_mux			= 1'b0;		// S4
 					end
 				`OP_SL	:
 					begin
@@ -201,7 +201,7 @@ module ID_stage
 						write_back_en			= 0;		// S3
 						write_back_result_mux	= 1'bx;		// S1
 						ex_alu_cmd				= `ALU_NC;	// S2
-						alu_src2_mux			= 1'bx;		// S4
+						alu_src2_mux			= 1'b0;		// S4
 `ifndef CODE_FOR_SYNTHESIS
 						$display("ERROR: Unknown Instruction: %b", ir_op_code_with_bubble);
 						//$stop;

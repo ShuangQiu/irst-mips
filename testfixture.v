@@ -150,8 +150,8 @@ module mips_16_core_top_tb_0_v;
     `ifdef VCD
     initial begin 
         $dumpports(mips_16_core_top, "mips_16_core.vcd", , 2); 
-        $dumpfile("mips_16_core.vcd");
         //$dumpvars(0, mips_16_core_top);
+        $dumpfile("mips_16_core.vcd");
     end 
     `endif 
 

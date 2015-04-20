@@ -4,7 +4,7 @@
 // Filename      : trcd.v
 // Author        : r04099
 // Created On    : 2015-03-18 07:52
-// Last Modified : 2015-04-09 08:32
+// Last Modified : 2015-04-20 18:32
 // -------------------------------------------------------------------------------------------------
 // Svn Info:
 //   $Revision::                                                                                $:
@@ -56,13 +56,33 @@ module ora(
 	output	[31:0]			read_data
 );
 
-    reg     [31:0] ram; 
-    reg     [31:0] lfsr; 
+    reg      [31:0] ram; 
+    reg      [31:0] lfsr; 
 
     wire     [31:0] misr; 
+    
+    wire     [15:0] ram_weight; 
+    wire     [15:0] ram_flip; 
 
     //TODO: weight bist functionality 
-    assign read_data = ram; 
+    assign read_data = (access_addr[0])?ram_flip:ram; 
+    assign ram_flip = (access_addr[1])?~ram_weight:ram_weight;
+    assign ram_weight[0] = ram[0] & ram[16] & access_addr[2]; 
+    assign ram_weight[1] = ram[1] & ram[17] & access_addr[2]; 
+    assign ram_weight[2] = ram[2] & ram[18] & access_addr[2]; 
+    assign ram_weight[3] = ram[3] & ram[19] & access_addr[2]; 
+    assign ram_weight[4] = ram[4] & ram[20] & access_addr[3]; 
+    assign ram_weight[5] = ram[5] & ram[21] & access_addr[3]; 
+    assign ram_weight[6] = ram[6] & ram[22] & access_addr[3]; 
+    assign ram_weight[7] = ram[7] & ram[23] & access_addr[4]; 
+    assign ram_weight[8] = ram[8] & ram[24] & access_addr[4]; 
+    assign ram_weight[9] = ram[9] & ram[25] & access_addr[4]; 
+    assign ram_weight[10] = ram[10] & ram[26] & access_addr[5]; 
+    assign ram_weight[11] = ram[11] & ram[27] & access_addr[5]; 
+    assign ram_weight[12] = ram[12] & ram[28] & access_addr[6]; 
+    assign ram_weight[13] = ram[13] & ram[29] & access_addr[6]; 
+    assign ram_weight[14] = ram[14] & ram[30] & access_addr[7]; 
+    assign ram_weight[15] = ram[15] & ram[31] & access_addr[8]; 
 
     // misr assignment taking both write address & data value  
     genvar i; 
