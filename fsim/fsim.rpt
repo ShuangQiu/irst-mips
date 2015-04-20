@@ -1,0 +1,19 @@
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       5745
+ Possibly detected                PT        286
+ Undetectable                     UD          5
+ ATPG untestable                  AU          0
+ Not detected                     ND       1970
+ -----------------------------------------------
+ total faults                              8006
+ test coverage                            73.59%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (mips_16_core.vcd)      529
+     #full_sequential patterns              529
+ -----------------------------------------------

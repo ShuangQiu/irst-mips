@@ -34,6 +34,9 @@ module mips_16_core_top_tb_0_v;
 	reg clk;
 	reg rst;
     reg irst_done_reg; 
+    
+	reg  [`PC_WIDTH-1:0] pc_reg;
+    reg  [15:0] instruction_reg;  
 
 	// Outputs
     wire [15:0] irst_reg_data; 
@@ -65,15 +68,19 @@ module mips_16_core_top_tb_0_v;
 	always #(CLK_PERIOD /2) 
 		clk =~clk;
 
-    always @(posedge clk) 
+    always @(posedge clk) begin 
         irst_done_reg <= irst_done; 
+
+        pc_reg <= pc; 
+        instruction_reg <= instruction; 
+    end 
 
 	integer i;
 	integer test;
     integer fout; 
 	
 	// Instantiate the Unit Under Test (UUT)
-	mips_16_core_top uut (
+	mips_16_core_top mips_16_core_top(
 		.clk                (clk), 
 		.rst                (rst), 
         .irst_reg_data      (irst_reg_data), 
@@ -137,13 +144,14 @@ module mips_16_core_top_tb_0_v;
 	);
 
     `ifdef SDF 
-    initial $sdf_annotate(`SDFFILE, uut); 
+    initial $sdf_annotate(`SDFFILE, mips_16_core_top); 
     `endif 
     
     `ifdef VCD
     initial begin 
+        $dumpports(mips_16_core_top, "mips_16_core.vcd", , 2); 
         $dumpfile("mips_16_core.vcd");
-        $dumpvars;
+        //$dumpvars(0, mips_16_core_top);
     end 
     `endif 
 
@@ -169,10 +177,6 @@ module mips_16_core_top_tb_0_v;
 		clk = 0;
 		rst = 0;
 
-        // ***************************
-        // fault injected here 
-        // ***************************
-        force uut.rand_data[3]=0;
         // ***************************
 
 		// Wait 100 ns for global reset to finish
@@ -214,7 +218,7 @@ module mips_16_core_top_tb_0_v;
 			
 			//#(CLK_PERIOD) test = 1;
 			
-			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
+			$monitor("current pc: %d ,instruction: %x", pc_reg, instruction_reg);
 			
 			#(CLK_PERIOD*100)
 			$monitoroff;
@@ -241,21 +245,22 @@ module mips_16_core_top_tb_0_v;
 			
 			//#(CLK_PERIOD) test = 1;
 			
-			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
+			$monitor("current pc: %d ,instruction: %x", pc_reg, instruction_reg);
 			
-			//#(CLK_PERIOD*400)
             @ (posedge irst_done_reg); 
+			$readmemb("./dat/test2.prog",imem.rom);
+			#(CLK_PERIOD*300)
 			$monitoroff;
 			display_all_regs;
-            $fdisplay(fout, "%b", uut.rand_data); 
+            $fdisplay(fout, "%b", mips_16_core_top.rand_data); 
 
 			$display("------------------------------");
             $display("trcd_data: "); 
-            $display("%h", uut.rand_data); 
+            $display("%h", mips_16_core_top.rand_data); 
 			$display("------------------------------");
 			
 			test = 0;
-			sys_reset;
+			//sys_reset;
 			
 		end
 	endtask
@@ -277,9 +282,9 @@ module mips_16_core_top_tb_0_v;
 			// 1: begin
 			    // $display("running test1\n");
 				 // while(test == 1) begin
-				    // @(uut.pc)
-					// $display("current pc : %d",uut.pc);
-					// if(uut.pc == 40) begin
+				    // @(mips_16_core_top.pc)
+					// $display("current pc : %d",mips_16_core_top.pc);
+					// if(mips_16_core_top.pc == 40) begin
 						// #1
 					    // branch_taken = 1;
 						// branch_offset_imm = -30;
@@ -295,7 +300,7 @@ module mips_16_core_top_tb_0_v;
 				 while(test == 2) begin
 				    @(pc)
 					if(pc%128==0) begin
-						$display("current pc : %d",uut.pc);
+						$display("current pc : %d",mips_16_core_top.pc);
 						display_all_regs();
 					end
 							

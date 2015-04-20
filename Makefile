@@ -11,9 +11,9 @@ SYN_COM_OPTS =
 SYN_SRC_FILE = mips_16_core_syn.v 
 SYN_OPTION = 
  	 	
-IRST_COM_OPTS = 
+IRST_COM_OPTS =+access+r +use_ieee_dumpport_ids
 IRST_SRC_FILE = mips_16_core_irst.v 
-IRST_OPTION = 
+IRST_OPTION =+VCD
 
 com : $(BENCH) $(SRC_FILE)
 	$(COM) $^ +access+r +define$(OPTION)
@@ -25,7 +25,7 @@ irst : $(BENCH) $(IRST_SRC_FILE) $(TECH_FILE) mips_16_core_irst.sdf
 	$(COM) $(IRST_COM_OPTS) $(BENCH) $(IRST_SRC_FILE) -v $(TECH_FILE) +define+SDF$(IRST_OPTION)
 
 clean :
-	@rm -rf *.vcd* tb* ncverilog.* novas.rc *.X
+	@rm -rf *.vcd.* tb* ncverilog.* novas.rc *.X
 	@rm -rf INCA_libs nWaveLog VerdiLog vfastLog 
 
 synclean : 
