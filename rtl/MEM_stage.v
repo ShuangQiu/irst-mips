@@ -41,14 +41,15 @@ module MEM_stage
 	assign ex_alu_result = pipeline_reg_in[37:22];
 	assign mem_write_en = pipeline_reg_in[21];
     assign mem_write_data = pipeline_reg_in[20:5];
-    assign rand_data = trcd_data; 
+    //assign rand_data = trcd_data; 
 
     trcd trcd(.clk(clk), 
               .rst(rst), 
               .mem_access_addr(pipeline_reg_in[37:22]), 
               .mem_write_data(pipeline_reg_in[20:5]), 
               .mem_write_en(pipeline_reg_in[21]), 
-              .mem_read_data(trcd_data)
+              .mem_read_data(trcd_data), 
+              .rand_data(rand_data)
               ); 
 	
 	/********************** singals to WB_stage *********************/

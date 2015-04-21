@@ -1,0 +1,508 @@
+# WGL pattern output written by  TetraMAX (TM)  G-2012.06-SP5-i130118_181936 
+# Date: Tue Jan 12 00:40:24 2016
+# Module tested: alu
+# === bidimap ===
+#  in out in out;
+#   00     00
+#   10     10
+#   X0     X0
+#   Z0     -0
+#   -0     -0
+#   01     01
+#   11     11
+#   X1     X1
+#   Z1     -1
+#   -1     -1
+#   0X     0-
+#   1X     1-
+#   XX     X-
+#   ZX     -X
+#   -X     --
+#   0Z     0Z
+#   1Z     1Z
+#   XZ     XZ
+#   ZZ     -Z
+#   -Z     -Z
+#   0-     0-
+#   1-     1-
+#   X-     X-
+#   Z-     --
+#   --     --
+# scanchain inversion reference is set to master
+
+#     Uncollapsed Stuck Fault Summary Report
+# -----------------------------------------------
+# fault class                     code   #faults
+# ------------------------------  ----  ---------
+# Detected                         DT        618
+# Possibly detected                PT          0
+# Undetectable                     UD          2
+# ATPG untestable                  AU          0
+# Not detected                     ND          0
+# -----------------------------------------------
+# total faults                               620
+# test coverage                           100.00%
+# -----------------------------------------------
+# 
+#            Pattern Summary Report
+# -----------------------------------------------
+# #internal patterns                          55
+#     #basic_scan patterns                    55
+# -----------------------------------------------
+# 
+# There are no rule fails
+# There are no clocks
+# There are no constraint ports
+# There are no equivalent pins
+# There are no net connections
+
+waveform alu
+
+signal
+   "a[15]" : input;
+   "a[14]" : input;
+   "a[13]" : input;
+   "a[12]" : input;
+   "a[11]" : input;
+   "a[10]" : input;
+   "a[9]" : input;
+   "a[8]" : input;
+   "a[7]" : input;
+   "a[6]" : input;
+   "a[5]" : input;
+   "a[4]" : input;
+   "a[3]" : input;
+   "a[2]" : input;
+   "a[1]" : input;
+   "a[0]" : input;
+   "b[15]" : input;
+   "b[14]" : input;
+   "b[13]" : input;
+   "b[12]" : input;
+   "b[11]" : input;
+   "b[10]" : input;
+   "b[9]" : input;
+   "b[8]" : input;
+   "b[7]" : input;
+   "b[6]" : input;
+   "b[5]" : input;
+   "b[4]" : input;
+   "b[3]" : input;
+   "b[2]" : input;
+   "b[1]" : input;
+   "b[0]" : input;
+   "cmd[2]" : input;
+   "cmd[1]" : input;
+   "cmd[0]" : input;
+   "r[15]" : output;
+   "r[14]" : output;
+   "r[13]" : output;
+   "r[12]" : output;
+   "r[11]" : output;
+   "r[10]" : output;
+   "r[9]" : output;
+   "r[8]" : output;
+   "r[7]" : output;
+   "r[6]" : output;
+   "r[5]" : output;
+   "r[4]" : output;
+   "r[3]" : output;
+   "r[2]" : output;
+   "r[1]" : output;
+   "r[0]" : output;
+end
+
+timeplate "_default_WFT_" period 100ns
+   "a[15]" := input [0ps:S];
+   "a[14]" := input [0ps:S];
+   "a[13]" := input [0ps:S];
+   "a[12]" := input [0ps:S];
+   "a[11]" := input [0ps:S];
+   "a[10]" := input [0ps:S];
+   "a[9]" := input [0ps:S];
+   "a[8]" := input [0ps:S];
+   "a[7]" := input [0ps:S];
+   "a[6]" := input [0ps:S];
+   "a[5]" := input [0ps:S];
+   "a[4]" := input [0ps:S];
+   "a[3]" := input [0ps:S];
+   "a[2]" := input [0ps:S];
+   "a[1]" := input [0ps:S];
+   "a[0]" := input [0ps:S];
+   "b[15]" := input [0ps:S];
+   "b[14]" := input [0ps:S];
+   "b[13]" := input [0ps:S];
+   "b[12]" := input [0ps:S];
+   "b[11]" := input [0ps:S];
+   "b[10]" := input [0ps:S];
+   "b[9]" := input [0ps:S];
+   "b[8]" := input [0ps:S];
+   "b[7]" := input [0ps:S];
+   "b[6]" := input [0ps:S];
+   "b[5]" := input [0ps:S];
+   "b[4]" := input [0ps:S];
+   "b[3]" := input [0ps:S];
+   "b[2]" := input [0ps:S];
+   "b[1]" := input [0ps:S];
+   "b[0]" := input [0ps:S];
+   "cmd[2]" := input [0ps:S];
+   "cmd[1]" := input [0ps:S];
+   "cmd[0]" := input [0ps:S];
+   "r[15]" := output [0ps:X, 40ns:Q'edge];
+   "r[14]" := output [0ps:X, 40ns:Q'edge];
+   "r[13]" := output [0ps:X, 40ns:Q'edge];
+   "r[12]" := output [0ps:X, 40ns:Q'edge];
+   "r[11]" := output [0ps:X, 40ns:Q'edge];
+   "r[10]" := output [0ps:X, 40ns:Q'edge];
+   "r[9]" := output [0ps:X, 40ns:Q'edge];
+   "r[8]" := output [0ps:X, 40ns:Q'edge];
+   "r[7]" := output [0ps:X, 40ns:Q'edge];
+   "r[6]" := output [0ps:X, 40ns:Q'edge];
+   "r[5]" := output [0ps:X, 40ns:Q'edge];
+   "r[4]" := output [0ps:X, 40ns:Q'edge];
+   "r[3]" := output [0ps:X, 40ns:Q'edge];
+   "r[2]" := output [0ps:X, 40ns:Q'edge];
+   "r[1]" := output [0ps:X, 40ns:Q'edge];
+   "r[0]" := output [0ps:X, 40ns:Q'edge];
+end
+
+pattern group_ALL ("a[15]", "a[14]", "a[13]", "a[12]", "a[11]", "a[10]", "a[9]",
+   "a[8]", "a[7]", "a[6]", "a[5]", "a[4]", "a[3]", "a[2]", "a[1]", "a[0]", "b[15]",
+   "b[14]", "b[13]", "b[12]", "b[11]", "b[10]", "b[9]", "b[8]", "b[7]", "b[6]", "b[5]",
+   "b[4]", "b[3]", "b[2]", "b[1]", "b[0]", "cmd[2]", "cmd[1]", "cmd[0]", "r[15]",
+   "r[14]", "r[13]", "r[12]", "r[11]", "r[10]", "r[9]", "r[8]", "r[7]", "r[6]", "r[5]",
+   "r[4]", "r[3]", "r[2]", "r[1]", "r[0]")
+   { non_scan_test }
+   { pattern 0 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 1 0 0 0 0 1 0 0 0 1 1 1 1 0 0 0 0 ];
+   { pattern 1 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 1 1 0 0 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 1 1 0 0 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 0 0 0 0 0 1 1 1 1 0 0 1 1 1 1 1 0 ];
+   { pattern 2 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 1 1 0 1 1 1 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 1 1 0 1 1 1 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 1 ];
+   { pattern 3 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 0 1 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 0 1 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 0 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 0 1 0 1 ];
+   { pattern 4 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 1 1 1 1 1 0 1 1 ];
+   { pattern 5 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 0 ];
+   { pattern 6 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 1 1 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 1 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 1 1 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 ];
+   { pattern 7 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 1 1 0 0 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 1 1 0 0 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 1 0 0 0 0 0 1 0 0 0 1 0 1 1 0 0 1 ];
+   { pattern 8 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 ];
+   { pattern 9 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 0 1 1 1 0 1 1 1 1 1 1 1 1 0 0 0 0 0 ];
+   { pattern 10 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 0 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 0 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 ];
+   { pattern 11 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 0 0 0 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 0 0 0 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 0 1 0 0 0 0 1 1 1 0 1 1 0 1 0 1 0 0 ];
+   { pattern 12 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 1 1 0 0 0 0 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 1 1 0 0 0 0 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 0 1 0 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 ];
+   { pattern 13 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 1 0 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ];
+   { pattern 14 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 0 1 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 0 1 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 0 1 1 1 0 0 0 1 1 0 0 1 0 0 1 0 0 0 ];
+   { pattern 15 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 0 1 1 0 1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 0 1 1 0 1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 0 1 1 0 ];
+   { pattern 16 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 1 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ];
+   { pattern 17 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 1 1 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 1 1 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 0 1 1 1 1 1 0 0 0 1 0 0 1 0 1 0 0 0 ];
+   { pattern 18 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 0 1 1 1 1 0 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 0 1 1 1 1 0 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 0 1 1 0 0 1 0 1 1 1 0 0 0 0 0 0 0 0 ];
+   { pattern 19 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 1 1 1 1 0 0 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 1 1 1 1 0 0 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 0 1 1 1 1 1 1 1 1 1 1 0 0 1 0 1 1 ];
+   { pattern 20 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 1 0 0 1 0 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 1 0 0 1 0 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 0 0 1 0 1 1 0 1 0 1 ];
+   { pattern 21 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 1 1 0 0 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 0 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 1 1 0 0 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 1 1 1 1 0 0 0 0 ];
+   { pattern 22 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 23 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 0 1 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 24 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 1 0 0 1 1 0 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 1 0 0 1 1 0 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 0 1 0 0 1 0 0 0 0 ];
+   { pattern 25 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 ];
+   { pattern 26 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 0 0 0 1 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 0 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 0 0 0 1 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 27 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 1 0 0 0 1 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 0 0 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 1 0 0 0 1 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 0 1 1 ];
+   { pattern 28 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 0 0 1 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 ];
+   { pattern 29 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 ];
+   { pattern 30 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 ];
+   { pattern 31 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 1 1 1 1 1 1 1 0 1 0 ];
+   { pattern 32 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 1 0 1 1 1 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 1 0 1 1 1 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 1 0 1 1 0 1 0 1 0 1 1 1 1 0 0 1 1 1 ];
+   { pattern 33 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 1 1 1 1 0 0 0 0 0 1 0 1 0 1 1 1 1 1 0 1 1 ];
+   { pattern 34 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 0 0 0 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 0 0 0 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 1 0 0 1 1 1 0 ];
+   { pattern 35 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 1 1 1 1 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 ];
+   { pattern 36 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 1 1 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 ];
+   { pattern 37 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 ];
+   { pattern 38 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 0 0 0 1 1 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 1 0 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 0 0 0 1 1 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 ];
+   { pattern 39 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 0 0 0 0 1 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0
+   0 1 1 0 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 0 0 0 0 1 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0
+   0 1 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 40 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 0 0 0 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 0 0 0 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1 1 1 ];
+   { pattern 41 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 1 0 1 1 0 1 1 ];
+   { pattern 42 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 1 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 0 1 1 0 1 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 ];
+   { pattern 43 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 1 0 1 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 1 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 1 1 0 0 1 0 1 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 1 0 1 1 1 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 44 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 1 1 0 0 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 1 1 0 0 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 ];
+   { pattern 45 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 1 1 0 0 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 1 1 0 0 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 1 1 0 0 0 0 0 1 1 1 1 0 0 1 1 0 0 0 ];
+   { pattern 46 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 1 0 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 1 1 1 1 1 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 1 0 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+   0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 47 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 0 1 0
+   0 0 0 1 1 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 0 1 0
+   0 0 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 48 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 0 0 0 0 0 0 1 0 0
+   0 0 0 0 1 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 0 0 0 0 0 0 1 0 0
+   0 0 0 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 49 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 1 1 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0
+   1 0 1 0 1 0 0 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 0 0 1 0 1 1 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0
+   1 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 50 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 0 1 0 1 0 0 1 0 1 0 1 1 0 0 0 0 1 0 0 0 0
+   0 0 0 1 0 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 0 1 0 1 0 0 1 0 1 0 1 1 0 0 0 0 1 0 0 0 0
+   0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 51 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 1 0 0 0 1 0 1 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 1 0 0 0 1 0 1 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0
+   0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 52 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0
+   0 0 1 0 0 1 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0
+   0 0 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 53 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0
+   0 0 0 1 1 0 1 1 1 0 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0
+   0 0 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+   { pattern 54 basic_scan }
+   { capture }
+   vector("_default_WFT_") := [ 0 1 0 0 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 0 1 X X X X X X X X X X X X X X X X ];
+   vector("_default_WFT_") := [ 0 1 0 0 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0
+   0 0 0 0 1 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 ];
+end
+
+end

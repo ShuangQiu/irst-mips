@@ -26,7 +26,7 @@
 `include "data_mem.v"
 
 `define  SDFFILE "./mips_16_core_irst.sdf"
-`define  END_CYCLE  10000
+`define  END_CYCLE  30000
 
 module mips_16_core_top_tb_0_v;
 
@@ -254,7 +254,7 @@ module mips_16_core_top_tb_0_v;
 			display_all_regs;
             $fdisplay(fout, "%b", mips_16_core_top.rand_data); 
 
-			$display("------------------------------");
+			$display("\n------------------------------");
             $display("trcd_data: "); 
             $display("%h", mips_16_core_top.rand_data); 
 			$display("------------------------------");

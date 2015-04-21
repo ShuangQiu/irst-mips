@@ -68,7 +68,8 @@ module mips_16_core_top
 		.branch_offset_imm		(branch_offset_imm), 
 		.branch_taken			(branch_taken), 
 		.pc						(pc), 
-        .write_en               (inst_write_en) 
+        .write_en               (inst_write_en), 
+        .rand_data              (rand_data[2:0])
 	);
 
     //TODO

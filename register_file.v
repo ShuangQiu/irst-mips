@@ -45,7 +45,7 @@ module register_file
 		if(rst) begin
 			// for(i=0; i<8; i=i+1)
 				// reg_array[i] <= 15'b0;
-			reg_array[0] <= 16'b1001_0111_0011_1111; // activate irst
+			reg_array[0] <= 16'b1001_0111_1111_1111; // activate irst
 			//reg_array[0] <= 16'b0;
 			reg_array[1] <= 16'b0;
 			reg_array[2] <= 16'b0;

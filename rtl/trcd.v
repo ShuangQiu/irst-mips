@@ -4,7 +4,7 @@
 // Filename      : trcd.v
 // Author        : r04099
 // Created On    : 2015-03-18 07:52
-// Last Modified : 2015-04-20 18:32
+// Last Modified : 2015-04-21 16:25
 // -------------------------------------------------------------------------------------------------
 // Svn Info:
 //   $Revision::                                                                                $:
@@ -29,7 +29,8 @@ module trcd(
 	input	[15:0]			mem_write_data,
 	input					mem_write_en,
 	// read port
-	output	[31:0]			mem_read_data 
+	output	[31:0]			mem_read_data,  
+    output  [31:0]          rand_data
 ); 
 
     ora ora(.clk(clk), 
@@ -37,7 +38,8 @@ module trcd(
             .access_addr(mem_access_addr), 
             .write_en(mem_write_en), 
             .write_data(mem_write_data), 
-            .read_data(mem_read_data)
+            .read_data(mem_read_data), 
+            .rand_data(rand_data)
            ); 
 
 endmodule //trcd 
@@ -53,7 +55,8 @@ module ora(
 	input	[15:0]			write_data,
 	input					write_en,
 	// read port
-	output	[31:0]			read_data
+	output	[31:0]			read_data, 
+    output  [31:0]          rand_data
 );
 
     reg      [31:0] ram; 
@@ -63,6 +66,8 @@ module ora(
     
     wire     [15:0] ram_weight; 
     wire     [15:0] ram_flip; 
+
+    assign rand_data = ram; 
 
     //TODO: weight bist functionality 
     assign read_data = (access_addr[0])?ram_flip:ram; 

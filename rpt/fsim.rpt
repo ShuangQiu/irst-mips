@@ -2,18 +2,18 @@
  -----------------------------------------------
  fault class                     code   #faults
  ------------------------------  ----  ---------
- Detected                         DT       6876
+ Detected                         DT       7227
  Possibly detected                PT         64
- Undetectable                     UD          5
+ Undetectable                     UD          2
  ATPG untestable                  AU          0
- Not detected                     ND        849
+ Not detected                     ND        467
  -----------------------------------------------
- total faults                              7794
- test coverage                            88.69%
+ total faults                              7760
+ test coverage                            93.57%
  -----------------------------------------------
             Pattern Summary Report
  -----------------------------------------------
  #internal patterns                           0
- #external patterns (fsim/fsim.evcd)       3237
-     #full_sequential patterns             3237
+ #external patterns (fsim/fsim.evcd)      19874
+     #full_sequential patterns            19874
  -----------------------------------------------

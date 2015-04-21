@@ -6,40 +6,30 @@ Report : timing
         -max_paths 1
 Design : mips_16_core_top
 Version: G-2012.06
-Date   : Mon Jan 11 11:04:12 2016
+Date   : Tue Jan 12 08:23:01 2016
 ****************************************
 
 Operating Conditions: slow   Library: slow
 Wire Load Model Mode: top
 
-  Startpoint: EX_stage_inst/pipeline_reg_out_reg[22]
+  Startpoint: MEM_stage_inst/pipeline_reg_out_reg[0]
               (rising edge-triggered flip-flop)
-  Endpoint: inst_write_data[9]
+  Endpoint: reg_write_data[15]
             (output port)
   Path Group: (none)
   Path Type: max
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
-  EX_stage_inst/pipeline_reg_out_reg[22]/CK (DFFTRX1)     0.00       0.00 r
-  EX_stage_inst/pipeline_reg_out_reg[22]/Q (DFFTRX1)      0.52       0.52 f
-  EX_stage_inst/pipeline_reg_out[22] (EX_stage)           0.00       0.52 f
-  MEM_stage_inst/pipeline_reg_in[22] (MEM_stage)          0.00       0.52 f
-  MEM_stage_inst/trcd/mem_access_addr[0] (trcd)           0.00       0.52 f
-  MEM_stage_inst/trcd/U2/Y (CLKBUFX3)                     0.34       0.86 f
-  MEM_stage_inst/trcd/ora/access_addr[0] (ora)            0.00       0.86 f
-  MEM_stage_inst/trcd/ora/U15/Y (NAND2XL)                 0.27       1.13 r
-  MEM_stage_inst/trcd/ora/U102/Y (AOI2BB2X1)              0.16       1.29 r
-  MEM_stage_inst/trcd/ora/U103/Y (OAI21XL)                0.09       1.39 f
-  MEM_stage_inst/trcd/ora/read_data[10] (ora)             0.00       1.39 f
-  MEM_stage_inst/trcd/mem_read_data[10] (trcd)            0.00       1.39 f
-  MEM_stage_inst/rand_data[10] (MEM_stage)                0.00       1.39 f
-  rand/rand_data[10] (randomizer)                         0.00       1.39 f
-  rand/U15/Y (AO22X1)                                     0.34       1.72 f
-  rand/U27/Y (OAI31XL)                                    0.20       1.92 r
-  rand/rand_inst[9] (randomizer)                          0.00       1.92 r
-  inst_write_data[9] (out)                                0.00       1.92 r
-  data arrival time                                                  1.92
+  MEM_stage_inst/pipeline_reg_out_reg[0]/CK (DFFTRX1)     0.00       0.00 r
+  MEM_stage_inst/pipeline_reg_out_reg[0]/Q (DFFTRX1)      0.63       0.63 f
+  MEM_stage_inst/pipeline_reg_out[0] (MEM_stage)          0.00       0.63 f
+  WB_stage_inst/pipeline_reg_in[0] (WB_stage)             0.00       0.63 f
+  WB_stage_inst/U1/Y (INVXL)                              0.39       1.03 r
+  WB_stage_inst/U18/Y (AO22X1)                            0.24       1.27 r
+  WB_stage_inst/reg_write_data[15] (WB_stage)             0.00       1.27 r
+  reg_write_data[15] (out)                                0.00       1.27 r
+  data arrival time                                                  1.27
   --------------------------------------------------------------------------
   (Path is unconstrained)
 

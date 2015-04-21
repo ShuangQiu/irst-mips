@@ -3,7 +3,7 @@
 Report : area
 Design : mips_16_core_top
 Version: G-2012.06
-Date   : Mon Jan 11 11:04:12 2016
+Date   : Tue Jan 12 08:23:01 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -20,11 +20,11 @@ Number of macros:                           0
 Number of buf/inv:                          0
 Number of references:                       7
 
-Combinational area:       6986.498421
+Combinational area:       6933.879016
 Noncombinational area:    6008.795914
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:          12995.294335
+Total cell area:          12942.674930
 Total area:                 undefined
 
 Hierarchical area distribution
@@ -35,18 +35,18 @@ Hierarchical area distribution
 Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black
                                   Total       Total    national   national   boxes   Design
 --------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
-mips_16_core_top                  12995.2943    100.0     0.0000     0.0000  0.0000  mips_16_core_top
-EX_stage_inst                      4442.0959     34.2    23.7636  1096.5204  0.0000  EX_stage
-EX_stage_inst/alu_inst             3321.8118     25.6  3321.8118     0.0000  0.0000  alu
-ID_stage_inst                      3036.6485     23.4   684.0522  2352.5963  0.0000  ID_stage
-IF_stage_inst                      1305.3006     10.0   789.2910   516.0096  0.0000  IF_stage
-MEM_stage_inst                     3552.6582     27.3   422.6526  1013.3478  0.0000  MEM_stage
-MEM_stage_inst/trcd                2116.6578     16.3    13.5792     0.0000  0.0000  trcd
-MEM_stage_inst/trcd/ora            2103.0786     16.2  1072.7568  1030.3218  0.0000  ora
+mips_16_core_top                  12942.6749    100.0     0.0000     0.0000  0.0000  mips_16_core_top
+EX_stage_inst                      4442.0959     34.3    23.7636  1096.5204  0.0000  EX_stage
+EX_stage_inst/alu_inst             3321.8118     25.7  3321.8118     0.0000  0.0000  alu
+ID_stage_inst                      3036.6485     23.5   684.0522  2352.5963  0.0000  ID_stage
+IF_stage_inst                      1329.0642     10.3   813.0546   516.0096  0.0000  IF_stage
+MEM_stage_inst                     3476.2752     26.9   422.6526  1013.3478  0.0000  MEM_stage
+MEM_stage_inst/trcd                2040.2747     15.8     6.7896     0.0000  0.0000  trcd
+MEM_stage_inst/trcd/ora            2033.4851     15.7  1003.1634  1030.3218  0.0000  ora
 WB_stage_inst                       203.6880      1.6   203.6880     0.0000  0.0000  WB_stage
 hazard_detection_unit_inst          258.0048      2.0   258.0048     0.0000  0.0000  hazard_detection_unit
 rand                                196.8984      1.5   196.8984     0.0000  0.0000  randomizer
 --------------------------------  ----------  -------  ---------  ---------  ------  ---------------------
-Total                                                  6986.4984  6008.7959  0.0000
+Total                                                  6933.8790  6008.7959  0.0000
 
 1

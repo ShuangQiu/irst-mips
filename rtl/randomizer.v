@@ -4,7 +4,7 @@
 // Filename      : randomizer.v
 // Author        : YK. Huang
 // Created On    : 2015-12-21 13:50
-// Last Modified : 2015-04-09 09:17
+// Last Modified : 2015-04-21 07:31
 // -------------------------------------------------------------------------------------------------
 // Svn Info:
 //   $Revision::                                                                                $:
@@ -27,7 +27,7 @@ module randomizer(
 
 parameter mask_gen1 = 16'b0000111111111000,
 		  mask_gen2 = 16'b0000111111111111,
-		  mask_gen3 = 16'b0000000111111000;
+		  mask_gen3 = 16'b0000000111111000;  
 parameter processor_reg0 = 3'b000, processor_reg1 = 3'b001;
 
 //instructions def
